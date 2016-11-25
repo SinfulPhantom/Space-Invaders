@@ -1,3 +1,6 @@
+// Created by Spencer Miller
+// linkedIn: https://www.linkedin.com/in/spencer-miller-079a0111b
+
 package space_invaders;
 
 import javax.swing.*;
