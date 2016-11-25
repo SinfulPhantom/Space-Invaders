@@ -85,7 +85,6 @@ public class SpaceInvaders extends JFrame {
       displayText.setLocation(270, 240);
       displayText.setForeground(Color.WHITE);
 			scoreText.setFont(scoreText.getFont().deriveFont(14.0f));
-			//add(scoreText);
 			scoreText.setLocation(540+40, 320);
 			scoreText.setForeground(Color.GREEN);
 			winLabel.setForeground(Color.WHITE);
@@ -124,6 +123,7 @@ public class SpaceInvaders extends JFrame {
 			
 			remove(displayText);
       add(scoreText);
+      
 			timeText.setText(decimalformat.format(hours) + ":" + 
 							decimalformat.format(minutes) + ":" + 
 							decimalformat.format(seconds));
@@ -157,7 +157,6 @@ public class SpaceInvaders extends JFrame {
 				g.drawImage(cannonballs, ballX, ballY = ballY--, 10, 10, this);
 				ballY = ballY - 2;
 				if (ballY < 0) { 
-					shotsFired++;
 					fired = 0;
 				}
 			}
@@ -165,7 +164,6 @@ public class SpaceInvaders extends JFrame {
 			for (int i =0; i < 10; ++i) { 
 				if ((ballX >= randomX[i] - 10) && (ballX <= randomX[i] + 30) && (ballY <= randomY[i] + 30)
 				    && (ballY >= randomY[i] - 10) && (delete[i] == 0)) {
-					shotsFired++;
 					fired = 0;
 					delete[i] = 1;
 					deleted++;
@@ -262,7 +260,7 @@ public class SpaceInvaders extends JFrame {
 		  
 			dummy++;
 			for (int i = 0; i < 10; ++i) {
-				if ((randomY[i] >= 30)&&(dummy%10 == 0))
+				if ((randomY[i] >= 30) && (dummy%10 == 0))
 					randomY[i]++;
 			}
 			repaint();
@@ -284,6 +282,7 @@ public class SpaceInvaders extends JFrame {
 					reset();
 			} else if (e.getKeyCode() == KeyEvent.VK_UP) {
 				if (fired == 0) {
+				  shotsFired++;
 					ballX = x_pic + 15;
 					ballY = 400;
 					fired = 1;
